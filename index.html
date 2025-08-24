@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thank You, Garvita 💛</title>
+  <meta name="description" content="A heartfelt thank-you letter to Garvita, my best friend, for always being there." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{
+      margin:0; font-family:Poppins, sans-serif; background:#0f1226; color:#f6f7fb;
+      background: radial-gradient(1200px 800px at 10% -10%, #2b2e68 0%, transparent 60%),
+                  radial-gradient(1000px 600px at 100% 0%, #1b2442 0%, transparent 60%),
+                  linear-gradient(180deg, #10143a 0%, #0f1226 60%, #0d1021 100%);
+      overflow-x:hidden;
+    }
+    .container{ width:min(1000px, 92%); margin:auto; }
+    header{text-align:center; padding:3rem 1.2rem 2rem;}
+    h1{font-size:clamp(2rem,6vw,3.4rem);margin:.6rem 0;}
+    .sub{color:#c6c8d4; max-width:600px; margin:auto;}
+    .card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:1.5rem; margin:1.5rem auto; box-shadow:0 10px 30px rgba(0,0,0,.3);}
+    .big{font-size:1.15rem; line-height:1.7;}
+    .letter p{line-height:1.7;}
+    .signature{margin-top:1rem; color:#c6c8d4;}
+    footer{text-align:center;color:#c6c8d4;padding:2rem 1rem 3rem;}
+
+    /* Image strip */
+    .photo-strip{
+      display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; margin:2.5rem 0;
+    }
+    .photo-strip img{
+      width:220px; height:260px; object-fit:cover;
+      border-radius:15px; box-shadow:0 8px 25px rgba(0,0,0,.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      opacity:0; transform:translateY(40px);
+    }
+    .photo-strip img.visible{
+      opacity:1; transform:translateY(0);
+    }
+    .photo-strip img:hover{
+      transform:scale(1.08); box-shadow:0 12px 35px rgba(0,0,0,.5);
+    }
+
+    /* Fade-in for cards */
+    .fade-up{
+      opacity:0; transform:translateY(40px);
+      transition:opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible{
+      opacity:1; transform:translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container fade-up">
+      <h1>Thank You for everything, Garviii 💛</h1>
+      <p class="sub">For never judging me. For always staying. For being more than a best friend—you’re family.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="photo-strip">
+      <!-- Replace these with your own images -->
+      <img src="her-photo1.jpg" alt="Her Photo 1" />
+      <img src="her-photo2.jpg" alt="Her Photo 2" />
+      <img src="her-photo3.jpg" alt="Her Photo 3" />
+    </div>
+
+    <div class="card fade-up">
+      <p class="big">We met online through a simple group chat, and I never imagined it would lead to this—having you as my closest friend. From that day until now, you’ve made my world brighter just by being in it.</p>
+    </div>
+
+    <div class="card letter fade-up">
+      <h2>A Little Letter to You</h2>
+      <p>Dearest garvii,</p>
+      <p>Thank you for being the kind of friend who doesn’t judge, who listens, who stays even when it would’ve been easier to walk away. You’ve stood by me through everything, making even the hardest days bearable.</p>
+      <p>One of my most treasured memories will always be the day you gifted me diecast cars. You didn’t even tell me beforehand—you just surprised me with a message that said <b>“wish granted.”</b> That small act spoke volumes about the kind of person you are: thoughtful, caring, and always finding ways to make me smile.</p>
+      <p>Moments like those remind me how lucky I am to call you my best friend. If “home” was a person, it would be you. Thank you for being my safe place, my hype queen, my constant.</p>
+      <p class="signature">— With love, always ❤️</p>
+    </div>
+
+    <div class="card fade-up">
+      <h3>Reasons I’m grateful for you</h3>
+      <ul>
+        <li>Judgment-free — you let me be myself completely.</li>
+        <li>Always there — from random texts to late-night talks.</li>
+        <li>Hype queen — you celebrate my smallest wins.</li>
+        <li>Safe space — I can tell you anything.</li>
+        <li>Surprises — like diecast cars and “wish granted.”</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    Made with gratitude • <span id="year"></span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold: 0.2});
+
+    document.querySelectorAll('.fade-up, .photo-strip img').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
